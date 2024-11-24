@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header ">
+            <div class="title-bar box1 ">
+                <h2 id="title">My Files</h2>
+                <button id="settings-button" class="settings-button">Settings</button>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="files-container"> 
+                <div id="file-list" class="file-list"></div>
+            </div>
+            <div class="file-display-container">
+                <div class="file-name-container box">
+                    <h3>Selected File</h3>
+                    <div class="file-edit-container">
+                        <input type="text" id="file-name-field" class="file-name-field" placeholder="No file selected" disabled>
+                        <button id="open-file-button" class="open-button" style="visibility: hidden;">Open File</button>
+                    </div>                 
+                </div>
+                <div class="management-sections">
+                    <div class="tag-management box">
+                        <h3>Manage Tags</h3>
+                        <div class="tag-controls">
+                            <input type="text" id="tag-input" class="tag-input" placeholder="Enter a tag"/>
+                            <button id="add-tag-button" class="tag-button">Add Tag</button>
+                        </div>
+                        <div id="tag-list" class="tag-list"></div>
+                        <div class="tag-buttons">
+                            <button id="remove-selected-tag-button" class="tag-button left-button">Remove Selected</button>
+                            <button id="remove-all-tags-button" class="tag-button right-button">Remove All</button>
+                        </div>
+                    </div>
+                    <div class="toggle-container box">
+                        <h3>Actions</h3>
+                        <div class="checkbox-container">
+                            <label>
+                                <input type="checkbox" id="new-toggle" />
+                                New
+                            </label>
+                            <label>
+                                <input type="checkbox" id="intelligent-toggle" checked/>
+                                Intelligent
+                            </label>
+                        </div>
+                        <button id="move-button" class="action-button" disabled>Move</button>
+                        <button id="trash-button" class="trash-button" disabled>Trash</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Settings Modal -->
+    <div id="settings-modal" class="settings-modal hidden">
+        <div class="settings-modal-content">
+            <h4>Path to Inbox</h4>
+            <input type="text" id="inv-field" class="inv-name-field" placeholder="No inbox selected">
+            <h4>Path to Directory Root</h4>
+            <input type="text" id="root-field" class="inv-name-field" placeholder="No root selected">
+            <button id="save-settings-button" class="save-button">Save</button>
+            <button id="close-settings-button" class="close-button">&times;</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(148, 175, 232, 0.83), rgba(82, 111, 208, 0.5));
+    color: #010000;
+}
+.main-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content-container {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.files-container {
+    padding-left: 30px;
+    width: 55%;
+    overflow-y: auto;
+    height: 100vh;
+    direction: rtl; /* Keep if necessary */
+    text-align: left; /* Ensures content aligns properly */
+}
+
+#title .arrow {
+    display: none;
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+#title.back .arrow {
+    display: inline; /* Show the arrow when class "back" is applied */
+}
+
+
+
+#title {
+    text-align: left;
+    
+}
+
+.h2 {
+    text-align: left;
+    margin-inline-start: 0; /* Prevents alignment shift in rtl */
+}
+
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: flex-start; /* Align items to the left */
+    direction: ltr; /* Ensures the file list behaves like left-to-right */
+}
+
+.file-item {
+    width: 100px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.file-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.file-icon {
+    font-size: 40px;
+    margin-bottom: 2px;
+}
+
+.file-name {
+    font-size: 14px;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.separator {
+    width: 3px;
+    height: 100%;
+    background-color: black;
+    margin: 0;
+}
+
+.file-display-container {
+    width: 45%;
+    padding: 0px 30px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+.file-display {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    word-wrap: break-word;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+
+
+.file-edit-container {
+    display: flex; /* Enable Flexbox */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Add spacing between the input and button */
+    width: 100%; /* Ensure the container spans the full width */
+}
+
+.file-name-field {
+    flex-grow: 1; /* Allow the input field to take up all available space */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 0; /* Prevents unwanted extra width from flex-grow */
+}
+
+.open-button {
+    flex-grow: 0; /* Ensure the button size is determined by its content */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    visibility: hidden; /* Keeps the button's space even when hidden */
+    height: auto; /* Ensure the button maintains its natural height */
+}
+
+.open-button.visible {
+    visibility: visible; /* Use this class to display the button */
+}
+
+.open-button:hover {
+    background-color: #0056b3;
+}
+
+.management-sections {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.tag-management {
+    width: 70%;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tag-input {
+    width: calc(100% - 110px);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.tag-buttons {
+    display: flex; /* Enable Flexbox layout */
+    justify-content: space-between; /* Position buttons at opposite ends */
+    width: 100%;
+    gap: 10px; /* Add space between buttons */
+    flex-wrap: wrap; /* Ensure the container spans the full width */
+}
+.tag-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.tag-button:hover {
+    background-color: #0056b3;
+}
+.tag-suggestions {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 100%; /* Match the parent width */
+    max-width: 100%; /* Ensure it doesn’t exceed the parent */
+    overflow-y: auto; /* Enable scrolling if there are too many suggestions */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.tag-suggestion {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tag-suggestion:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+.tag-list {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tag-item {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.tag-item.selected {
+    background: #007BFF;
+    color: white;
+}
+button:disabled {
+    opacity: 0.6; /* Make the button less intense */
+    cursor: not-allowed; /* Show a not-allowed cursor */
+}
+
+.toggle-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.action-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #11a61f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.trash-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #d13c17;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.trash-button:hover {
+    background-color: #c9310b;
+}
+
+.action-button:hover {
+    background-color: #218838;
+}
+
+.box {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0.0rem 1rem 1rem 1rem; /* Smaller top padding */
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.box1 {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0.0rem 1rem 1rem 1rem; /* Smaller top padding */
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add padding to the sides */
+    background: rgba(255, 255, 255, 0.05);
+}
+.header {
+    align-items: center;
+    padding: 10px 30px 0px 30px; 
+}
+
+#title {
+    text-align: left;
+}
+#title:hover {
+    color:#44474b;
+}
+
+.settings-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.settings-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; /* Use flexbox to center the modal content */
+    justify-content: center; /* Horizontally center the modal */
+    align-items: center; /* Vertically center the modal */
+    z-index: 1000;
+}
+
+.settings-modal-content {
+    background: white;
+    padding: 30px 20px; /* Add padding for spacing inside */
+    border-radius: 8px;
+    width: 400px; /* Set a fixed width for the modal */
+    text-align: center; /* Center text and buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure absolute elements like the close button are relative to this */
+}
+
+
+.settings-modal.hidden {
+    display: none;
+}
+
+
+.inv-name-field {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%; /* Ensure the text field spans the container */
+    margin-bottom: 15px; /* Add space below the input field */
+}
+
+.save-button {
+    display: block; /* Ensure it takes its own line */
+    margin: 10px auto; /* Center the button horizontally with some spacing */
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-button:hover {
+    color: red;
+}
+
+.settings-modal-content h4 {
+    text-align: left;       /* Align text to the left */
+    padding: 10px 0 10px 30px; /* Padding: top 10px, right 0px, bottom 10px, left 10px */
+    margin: 0; 
+}
