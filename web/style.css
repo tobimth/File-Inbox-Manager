@@ -24,8 +24,8 @@ body {
     width: 55%;
     overflow-y: auto;
     height: 100vh;
-    direction: rtl; /* Keep if necessary */
-    text-align: left; /* Ensures content aligns properly */
+    direction: rtl; 
+    text-align: left; 
 }
 
 #title .arrow {
@@ -35,7 +35,7 @@ body {
 }
 
 #title.back .arrow {
-    display: inline; /* Show the arrow when class "back" is applied */
+    display: inline; 
 }
 
 
@@ -47,15 +47,15 @@ body {
 
 .h2 {
     text-align: left;
-    margin-inline-start: 0; /* Prevents alignment shift in rtl */
+    margin-inline-start: 0;
 }
 
 .file-list {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content: flex-start; /* Align items to the left */
-    direction: ltr; /* Ensures the file list behaves like left-to-right */
+    justify-content: flex-start; 
+    direction: ltr; 
 }
 
 .file-item {
@@ -122,24 +122,24 @@ body {
 
 
 .file-edit-container {
-    display: flex; /* Enable Flexbox */
-    align-items: center; /* Align items vertically in the center */
-    gap: 10px; /* Add spacing between the input and button */
-    width: 100%; /* Ensure the container spans the full width */
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    width: 100%; 
 }
 
 .file-name-field {
-    flex-grow: 1; /* Allow the input field to take up all available space */
+    flex-grow: 1; 
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 0; /* Prevents unwanted extra width from flex-grow */
+    width: 0; 
 }
 
 .open-button {
-    flex-grow: 0; /* Ensure the button size is determined by its content */
-    flex-shrink: 0; /* Prevent the button from shrinking */
+    flex-grow: 0; 
+    flex-shrink: 0; 
     padding: 8px 15px;
     font-size: 14px;
     background-color: #007BFF;
@@ -147,12 +147,12 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    visibility: hidden; /* Keeps the button's space even when hidden */
-    height: auto; /* Ensure the button maintains its natural height */
+    visibility: hidden; 
+    height: auto; 
 }
 
 .open-button.visible {
-    visibility: visible; /* Use this class to display the button */
+    visibility: visible; 
 }
 
 .open-button:hover {
@@ -186,11 +186,11 @@ body {
     border-radius: 5px;
 }
 .tag-buttons {
-    display: flex; /* Enable Flexbox layout */
-    justify-content: space-between; /* Position buttons at opposite ends */
+    display: flex; 
+    justify-content: space-between; 
     width: 100%;
-    gap: 10px; /* Add space between buttons */
-    flex-wrap: wrap; /* Ensure the container spans the full width */
+    gap: 10px; 
+    flex-wrap: wrap; 
 }
 .tag-button {
     padding: 10px 15px;
@@ -212,10 +212,10 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 5px;
-    width: 100%; /* Match the parent width */
-    max-width: 100%; /* Ensure it doesn’t exceed the parent */
-    overflow-y: auto; /* Enable scrolling if there are too many suggestions */
-    z-index: 1000; /* Ensure it appears above other elements */
+    width: 100%; 
+    max-width: 100%; 
+    overflow-y: auto; 
+    z-index: 1000;
 }
 
 .tag-suggestion {
@@ -257,8 +257,8 @@ body {
     color: white;
 }
 button:disabled {
-    opacity: 0.6; /* Make the button less intense */
-    cursor: not-allowed; /* Show a not-allowed cursor */
+    opacity: 0.6; 
+    cursor: not-allowed; 
 }
 
 .toggle-container {
@@ -328,7 +328,7 @@ input[type="checkbox"] {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 0.0rem 1rem 1rem 1rem; /* Smaller top padding */
+    padding: 0.0rem 1rem 1rem 1rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -336,7 +336,7 @@ input[type="checkbox"] {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 0.0rem 1rem 1rem 1rem; /* Smaller top padding */
+    padding: 0.0rem 1rem 1rem 1rem; 
     margin-bottom: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -351,7 +351,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Add padding to the sides */
+    padding: 0 20px; 
     background: rgba(255, 255, 255, 0.05);
 }
 .header {
@@ -389,20 +389,20 @@ input[type="checkbox"] {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex; /* Use flexbox to center the modal content */
-    justify-content: center; /* Horizontally center the modal */
-    align-items: center; /* Vertically center the modal */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     z-index: 1000;
 }
 
 .settings-modal-content {
     background: white;
-    padding: 30px 20px; /* Add padding for spacing inside */
+    padding: 30px 20px;
     border-radius: 8px;
-    width: 400px; /* Set a fixed width for the modal */
-    text-align: center; /* Center text and buttons */
+    width: 400px; 
+    text-align: center; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative; /* Ensure absolute elements like the close button are relative to this */
+    position: relative; 
 }
 
 
@@ -416,13 +416,13 @@ input[type="checkbox"] {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 80%; /* Ensure the text field spans the container */
-    margin-bottom: 15px; /* Add space below the input field */
+    width: 80%; 
+    margin-bottom: 15px; 
 }
 
 .save-button {
-    display: block; /* Ensure it takes its own line */
-    margin: 10px auto; /* Center the button horizontally with some spacing */
+    display: block; 
+    margin: 10px auto;
     padding: 8px 15px;
     font-size: 14px;
     background-color: #28a745;
@@ -452,7 +452,7 @@ input[type="checkbox"] {
 }
 
 .settings-modal-content h4 {
-    text-align: left;       /* Align text to the left */
-    padding: 10px 0 10px 30px; /* Padding: top 10px, right 0px, bottom 10px, left 10px */
+    text-align: left;       
+    padding: 10px 0 10px 30px; 
     margin: 0; 
 }

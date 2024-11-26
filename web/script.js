@@ -142,13 +142,14 @@ async function handleMoveFile() {
         const intelligentToggle = document.getElementById("intelligent-toggle").checked;
 
         const result = await eel.move_file(selectedFile_name, selectedFile, tagList, newToggle, intelligentToggle)();
-        const str = await eel.get_path_status_message(result[0])
+        const str = await eel.get_path_status_message(result[0])()
         alert(`${str} ${result[1]}`);
         if (result[0] === "SUCCESSFUL") {
             const curr = await eel.go_one_dir_back(selectedFile)()
-            currdir = curr 
+            currdir = curr
             updateHeader()
             loadFiles(); // Refresh file list
+            checkNewPath()
         }
     } catch (error) {
         console.error("Error moving file:", error);
