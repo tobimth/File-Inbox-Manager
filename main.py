@@ -6,6 +6,7 @@ import subprocess
 import send2trash
 import json
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Enum for path-related operations
 class PathStatus(Enum):
